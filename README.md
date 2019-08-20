@@ -1,1 +1,1 @@
-# amazingtranslator
+# Amazing Translator
