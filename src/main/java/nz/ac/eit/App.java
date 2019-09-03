@@ -1,6 +1,7 @@
 package nz.ac.eit;
 
 import java.util.Scanner;
+import java.util.HashMap;
 
 /**
  * Hello world!
@@ -8,20 +9,30 @@ import java.util.Scanner;
  */
 public class App 
 {
+
+
     public static void main( String[] args )
     {
-        System.out.println( "What is the number to translate?" );
         Scanner sc = new Scanner(System.in);
-        String input = sc.nextLine();
-        int num = Integer.parseInt(input);
-        System.out.println("The number to translate is " + num);
+        int number;
+        String language;
+        Converter converter = new Converter();
+        String convertedNumber;
 
-        System.out.print("What is the language you would like to translate into?\n(ENG, GER, FRA, ITA, ESP)\n");
-        input = sc.nextLine().toUpperCase();
-        while (!(input.equals("ENG") || input.equals("GER") || input.equals("FRA") || input.equals("ITA") || input.equals("ESP"))) {
+        System.out.print( "***\nWhat is the number to translate?\n***\n" );
+        number = Integer.parseInt(sc.nextLine());
+
+        System.out.print("***\nWhat is the language you would like to translate into?\n(ENG, GER, FRA, ITA, ESP)\n***\n");
+        language = sc.nextLine().toUpperCase();
+        while (!(language.equals("ENG") || language.equals("GER") || language.equals("FRA") || language.equals("ITA") || language.equals("ESP"))) {
             System.out.println("That language is not currently supported. Please enter another:");
-            input = sc.nextLine().toUpperCase();
+            language = sc.nextLine().toUpperCase();
         }
-        System.out.println("The language you have chosen is: " + input);
+
+        convertedNumber = converter.convert(number, language);
+        System.out.print("***\n" + number + " in " + language + " is " + convertedNumber + "\n***\n");
     }
+
+
+
 }
