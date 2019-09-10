@@ -30,7 +30,11 @@ public class App
         }
 
         convertedNumber = converter.convert(number, language);
-        System.out.print("***\n" + number + " in " + language + " is " + convertedNumber + "\n***\n");
+        if (!convertedNumber.equals("Error")) {
+            System.out.print("***\n" + number + " in " + language + " is " + convertedNumber + "\n***\n");
+        } else {
+            System.out.print("***\n" + "Sorry, an unexpected error occurred\n***\n");
+        }
     }
 
 
