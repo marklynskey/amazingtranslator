@@ -1,10 +1,19 @@
 package nz.ac.eit;
 
 import javax.management.BadStringOperationException;
+import java.util.ArrayList;
 
 public class InputChecker {
 
-    public InputChecker() {}
+    ArrayList supportedLanguages = new ArrayList();
+
+    public InputChecker() {
+        supportedLanguages.add("ENG");
+        supportedLanguages.add("FRA");
+        supportedLanguages.add("GER");
+        supportedLanguages.add("ITA");
+        supportedLanguages.add("ESP");
+    }
 
     public int checkNumber(String stringNumber) throws IndexOutOfBoundsException, NumberFormatException {
         int number;
@@ -20,16 +29,12 @@ public class InputChecker {
     }
 
     public String checkLanguage(String language) throws BadStringOperationException {
-        language.toUpperCase();
-        String[] supportedLanguages = {"ENG", "FRA", "GER", "ITA", "ESP"};
-        boolean languageSupported = false;
-        for (int i = 0; i < supportedLanguages.length; i++) {
-            if (language.equals(supportedLanguages[i])) {
-                return language;
-            }
+        language = language.toUpperCase();
+        if (supportedLanguages.contains(language)) {
+            return language;
+        } else {
+            throw new BadStringOperationException(language);
         }
-        // If language not supported, throw exception
-        throw new BadStringOperationException(language);
     }
 
 }
