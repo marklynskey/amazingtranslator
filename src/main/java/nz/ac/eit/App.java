@@ -1,7 +1,6 @@
 package nz.ac.eit;
 
 import java.util.Scanner;
-import java.util.HashMap;
 
 /**
  * Hello world!
@@ -55,5 +54,5 @@ public class App
             System.out.print("***\n" + "Sorry, an unexpected error occurred\n***\n");
         }
     }
-    
+
 }
